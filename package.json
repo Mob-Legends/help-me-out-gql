@@ -1,0 +1,62 @@
+{
+  "author": "",
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "dependencies": {
+    "@sentry/node": "5.15.0",
+    "apollo-datasource-rest": "0.8.0",
+    "apollo-server-express": "2.11.0",
+    "dotenv": "8.2.0",
+    "express": "4.17.1",
+    "express-enforces-ssl": "1.1.0",
+    "graphql": "14.6.0",
+    "helmet": "3.21.3",
+    "nexus": "0.12.0-rc.14",
+    "winston": "3.2.1"
+  },
+  "description": "",
+  "devDependencies": {
+    "@types/express": "4.17.3",
+    "@types/express-enforces-ssl": "1.1.1",
+    "@types/helmet": "0.0.45",
+    "@types/memcached": "2.2.6",
+    "@types/node": "13.9.2",
+    "@types/node-fetch": "2.5.5",
+    "commitizen": "4.0.3",
+    "cz-conventional-changelog": "3.1.0",
+    "nodemon": "2.0.2",
+    "npm-run-all": "4.1.5",
+    "rimraf": "3.0.2",
+    "standard-version": "7.1.0",
+    "ts-node": "8.7.0",
+    "typescript": "3.8.3"
+  },
+  "engines": {
+    "node": ">=12.0.0",
+    "npm": "6.x"
+  },
+  "keywords": [],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "name": "help-me-out-gql",
+  "repository": "https://github.com/Mob-Legends/help-me-out-gql.git",
+  "scripts": {
+    "build": "run-p tsc",
+    "commit": "npx git-cz",
+    "prebuild": "run-p rimraf",
+    "release": "standard-version",
+    "rimraf": "rimraf ./lib",
+    "start": "node .",
+    "start:dev": "NODE_ENV=development nodemon --watch src -e ts,graphql --exec ts-node -T ./src/index.ts",
+    "tsc": "tsc"
+  },
+  "standard-version": {
+    "skip": {
+      "tag": true
+    }
+  },
+  "version": "0.0.0"
+}

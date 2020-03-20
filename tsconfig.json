@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "target": "es6",
+    "noImplicitAny": true,
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "allowJs": false,
+    "outDir": "./lib",
+    "baseUrl": ".",
+    "rootDir": "./src",
+    "lib": [
+      "es2015",
+      "dom",
+      "esnext.asynciterable"
+    ]
+  },
+  "exclude": [
+    "node_modules/*",
+    "scripts/*"
+  ]
+}
