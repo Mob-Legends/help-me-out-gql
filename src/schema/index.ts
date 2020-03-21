@@ -1,8 +1,4 @@
-import {
-  makeSchema,
-  objectType,
-  stringArg,
-} from 'nexus';
+import { makeSchema, objectType } from '@nexus/schema';
 
 import path from 'path';
 // import { NexusGenFieldTypes } from 'src/api-typegen';
@@ -16,10 +12,10 @@ const Query = objectType({
       nullable: false,
       type: 'String',
       resolve() {
-        return "World";
-      },
+        return 'World';
+      }
     });
-  },
+  }
 });
 
 // const Mutation = objectType({
@@ -32,7 +28,7 @@ const Query = objectType({
 const schema = makeSchema({
   outputs: {
     schema: path.join(__dirname, '../../schemaFiles/schema.graphql'),
-    typegen: path.join(__dirname.replace(/\/lib$/, '/src'), '../api-typegen.ts'),
+    typegen: path.join(__dirname.replace(/\/lib$/, '/src'), '../api-typegen.ts')
   },
   shouldGenerateArtifacts: process.env.NODE_ENV === 'development',
   typegenAutoConfig: {
@@ -40,11 +36,11 @@ const schema = makeSchema({
     sources: [
       {
         alias: 't',
-        source: path.join(__dirname.replace(/\/lib$/, '/src'), './typeDefs.ts'),
-      },
-    ],
+        source: path.join(__dirname.replace(/\/lib$/, '/src'), './typeDefs.ts')
+      }
+    ]
   },
-  types: [Query],
+  types: [Query]
 });
 
 export default schema;

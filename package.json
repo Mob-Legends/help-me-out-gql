@@ -6,15 +6,17 @@
     }
   },
   "dependencies": {
+    "@nexus/schema": "0.12.0-rc.13",
+    "@sentry/integrations": "5.15.0",
     "@sentry/node": "5.15.0",
     "apollo-datasource-rest": "0.8.0",
     "apollo-server-express": "2.11.0",
+    "apollo-server-plugin-base": "0.7.0",
     "dotenv": "8.2.0",
     "express": "4.17.1",
     "express-enforces-ssl": "1.1.0",
     "graphql": "14.6.0",
     "helmet": "3.21.3",
-    "nexus": "0.12.0-rc.14",
     "winston": "3.2.1"
   },
   "description": "",
@@ -22,15 +24,24 @@
     "@types/express": "4.17.3",
     "@types/express-enforces-ssl": "1.1.1",
     "@types/helmet": "0.0.45",
+    "@types/jest": "25.1.4",
     "@types/memcached": "2.2.6",
     "@types/node": "13.9.2",
     "@types/node-fetch": "2.5.5",
+    "@typescript-eslint/eslint-plugin": "2.24.0",
+    "@typescript-eslint/parser": "2.24.0",
     "commitizen": "4.0.3",
     "cz-conventional-changelog": "3.1.0",
+    "eslint": "6.8.0",
+    "eslint-config-prettier": "6.10.0",
+    "eslint-plugin-prettier": "3.1.2",
+    "jest": "25.1.0",
     "nodemon": "2.0.2",
     "npm-run-all": "4.1.5",
+    "prettier": "1.19.1",
     "rimraf": "3.0.2",
     "standard-version": "7.1.0",
+    "ts-jest": "25.2.1",
     "ts-node": "8.7.0",
     "typescript": "3.8.3"
   },
@@ -50,13 +61,35 @@
     "release": "standard-version",
     "rimraf": "rimraf ./lib",
     "start": "node .",
-    "start:dev": "NODE_ENV=development nodemon --watch src -e ts,graphql --exec ts-node -T ./src/index.ts",
-    "tsc": "tsc"
+    "start:dev": "NODE_ENV=local nodemon --watch src -e ts,graphql --exec ts-node -T ./src/index.ts",
+    "tsc": "tsc",
+    "test": "jest",
+    "lint": "eslint 'src/**/*.ts'",
+    "lint:fix": "npm run lint -- --fix"
   },
   "standard-version": {
     "skip": {
       "tag": true
     }
+  },
+  "eslintConfig": {
+    "parser": "@typescript-eslint/parser",
+    "extends": [
+      "plugin:@typescript-eslint/recommended",
+      "prettier/@typescript-eslint",
+      "plugin:prettier/recommended"
+    ],
+    "parserOptions": {
+      "ecmaVersion": 2018,
+      "sourceType": "module"
+    },
+    "rules": {
+      "@typescript-eslint/explicit-function-return-type": 0
+    }
+  },
+  "prettier": {
+    "singleQuote": true,
+    "tabWidth": 2
   },
   "version": "0.0.0"
 }
