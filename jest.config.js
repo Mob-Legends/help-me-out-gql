@@ -5,5 +5,5 @@ module.exports = {
   },
   moduleFileExtensions: ['ts', 'js', 'node'],
   collectCoverage: true,
-  converageReporters: ['lcov']
+  coverageReporters: ['lcov']
 };

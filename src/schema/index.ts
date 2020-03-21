@@ -1,4 +1,4 @@
-import { makeSchema, objectType } from 'nexus';
+import { makeSchema, objectType } from '@nexus/schema';
 
 import path from 'path';
 // import { NexusGenFieldTypes } from 'src/api-typegen';
