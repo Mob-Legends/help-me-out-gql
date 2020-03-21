@@ -4,6 +4,6 @@ const environment = process.env.NODE_ENV;
 
 if (environment !== 'production') {
   dotenv.config({
-    path: '.env.local',
+    path: '.env.local'
   });
 }

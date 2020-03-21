@@ -4,9 +4,9 @@ const logger = createLogger({
   level: 'info',
   transports: [
     new transports.Console({
-      handleExceptions: true,
-    }),
-  ],
+      handleExceptions: true
+    })
+  ]
 });
 
 export default logger;
